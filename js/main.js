@@ -1,8 +1,8 @@
 let Coffee = {
     Price: 540,
     Intensity: {
-        CoffeeIntensityByPackage: '2',
-        maxCoffeeIntensity: '5'
+        CoffeeIntensityByPackage: 2,
+        maxCoffeeIntensity: 5
     }
 };
 

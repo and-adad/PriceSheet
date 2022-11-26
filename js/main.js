@@ -16,6 +16,9 @@ console.log(input.value);*/
 var GAP = 10;
 var FONT_GAP = 15;
 var BAR_HEIGHT = 20;
+var TEXT_WIDTH = 500;
+var TEXT_HEIGHT = 200;
+var barWidth = 4000;
 
 var getMaxElement = function (arr) {
     var maxElement = arr[0];
@@ -44,6 +47,7 @@ var renderStatistics = function (ctx, CoffeeName, price, intensity) {
 
     for (var i = 0; i < CoffeeName.length; i++) {
         ctx.fillText(CoffeeName[i], GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
+        ctx.fillRect(GAP + TEXT_WIDTH, GAP + (GAP + BAR_HEIGHT) * i, barWidth, BAR_HEIGHT);
     }
 
 };

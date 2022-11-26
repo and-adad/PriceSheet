@@ -46,12 +46,23 @@ var renderStatistics = function (ctx, CoffeeName, price, intensity) {
     var intensity = ['не известно', '8/10', '5/5', '3/5'];
     var weight = [0.095, 0.085, 0.24, 0.095];
 
-    var maxPrice = getMaxElement(price);
+    var totalPrice = [];
+
+    for (var i = 0; i < price.length; i++) {
+
+        totalPrice[i] = price[i] / weight[i];
+
+    }
 
     for (var i = 0; i < CoffeeName.length; i++) {
+
+        
+
+        var maxTotalPrice = getMaxElement(totalPrice);
+        
         ctx.fillText(CoffeeName[i], GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
-        ctx.fillRect(GAP + TEXT_WIDTH, GAP + (GAP + BAR_HEIGHT) * i, (barWidth * price[i]) / (maxPrice * weight[i]), BAR_HEIGHT);
-        ctx.fillText('Интенсивность: ' + intensity[i], GAP + TEXT_WIDTH + (barWidth * price[i]) / (maxPrice * weight[i]) + GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
+        ctx.fillRect(GAP + TEXT_WIDTH, GAP + (GAP + BAR_HEIGHT) * i, barWidth * totalPrice[i] / maxTotalPrice, BAR_HEIGHT);
+        ctx.fillText('Интенсивность: ' + intensity[i], GAP + TEXT_WIDTH + barWidth * totalPrice[i] / maxTotalPrice + GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
     }
 
 };

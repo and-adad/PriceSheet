@@ -16,9 +16,9 @@ console.log(input.value);*/
 var GAP = 10;
 var FONT_GAP = 15;
 var BAR_HEIGHT = 20;
-var TEXT_WIDTH = 500;
+var TEXT_WIDTH = 150;
 var TEXT_HEIGHT = 200;
-var barWidth = 4000;
+var barWidth = 400;
 
 var getMaxElement = function (arr) {
     var maxElement = arr[0];

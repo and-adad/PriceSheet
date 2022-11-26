@@ -18,7 +18,7 @@ var FONT_GAP = 15;
 var BAR_HEIGHT = 20;
 var TEXT_WIDTH = 150;
 var TEXT_HEIGHT = 200;
-var barWidth = 400;
+var barWidth = 40;
 
 var getMaxElement = function (arr) {
     var maxElement = arr[0];
@@ -44,13 +44,14 @@ var renderStatistics = function (ctx, CoffeeName, price, intensity) {
     var CoffeeName = ['BUSHIDO Kodo', 'NESCAFE Gold Aroma', 'JARDIN Colombia Medellin', 'JARDIN kenya Kilimanjaro'];
     var price = [519, 200, 790, 305];
     var intensity = ['не известно', '8/10', '5/5', '3/5'];
+    var weight = [0.095, 0.085, 0.24, 0.095];
 
     var maxPrice = getMaxElement(price);
 
     for (var i = 0; i < CoffeeName.length; i++) {
         ctx.fillText(CoffeeName[i], GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
-        ctx.fillRect(GAP + TEXT_WIDTH, GAP + (GAP + BAR_HEIGHT) * i, (barWidth * price[i]) / maxPrice, BAR_HEIGHT);
-        ctx.fillText('Интенсивность: ' + intensity[i], GAP + TEXT_WIDTH + (barWidth * price[i]) / maxPrice + GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
+        ctx.fillRect(GAP + TEXT_WIDTH, GAP + (GAP + BAR_HEIGHT) * i, (barWidth * price[i]) / (maxPrice * weight[i]), BAR_HEIGHT);
+        ctx.fillText('Интенсивность: ' + intensity[i], GAP + TEXT_WIDTH + (barWidth * price[i]) / (maxPrice * weight[i]) + GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
     }
 
 };

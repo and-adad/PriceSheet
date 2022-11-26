@@ -45,9 +45,11 @@ var renderStatistics = function (ctx, CoffeeName, price, intensity) {
     var price = [519, 200, 790, 305];
     var intensity = ['не известно', 8/10, 5/5, 3/5];
 
+    var maxPrice = getMaxElement(price);
+
     for (var i = 0; i < CoffeeName.length; i++) {
         ctx.fillText(CoffeeName[i], GAP, GAP + FONT_GAP + (GAP + BAR_HEIGHT) * i);
-        ctx.fillRect(GAP + TEXT_WIDTH, GAP + (GAP + BAR_HEIGHT) * i, barWidth, BAR_HEIGHT);
+        ctx.fillRect(GAP + TEXT_WIDTH, GAP + (GAP + BAR_HEIGHT) * i, (barWidth * price[i]) / maxPrice, BAR_HEIGHT);
     }
 
 };
